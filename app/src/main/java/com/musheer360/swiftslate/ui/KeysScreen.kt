@@ -101,7 +101,7 @@ fun KeysScreen(keyManager: KeyManager, prefs: SharedPreferences) {
                             }
                             val result = run {
                                 val providerType = ProviderType.sanitize(prefs.getString("provider_type", null))
-                                val customEndpoint = prefs.getString("custom_endpoint", "") ?: ""
+                                val customEndpoint = (prefs.getString("custom_endpoint", "") ?: "").trim()
                                 when {
                                     providerType == ProviderType.CUSTOM && customEndpoint.isBlank() -> {
                                         isTesting = false
